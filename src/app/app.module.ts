@@ -20,6 +20,8 @@ import { NoContentComponent } from './no-content';
 import { XLargeDirective } from './home/x-large';
 import { DevModuleModule } from './+dev-module';
 
+import { AuthService } from './auth/auth.service';
+
 import '../styles/styles.scss';
 import '../styles/headings.css';
 
@@ -56,7 +58,7 @@ type StoreType = {
     FormsModule,
     HttpClientModule,
     RouterModule.forRoot(ROUTES, {
-      useHash: Boolean(history.pushState) === false,
+      useHash: true,
       preloadingStrategy: PreloadAllModules
     }),
 
@@ -71,6 +73,7 @@ type StoreType = {
    * Expose our Services and Providers into Angular's dependency injection.
    */
   providers: [
+    AuthService,
     environment.ENV_PROVIDERS,
     APP_PROVIDERS
   ]
