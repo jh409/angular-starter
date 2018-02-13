@@ -9,8 +9,8 @@
 #    Clean (remove intermidiet images):
 #    docker rmi -f $(docker images -f "dangling=true" -q)
 #
-#    Run image (on localhost:8080):
-#    docker run --name angular-starter -p 8080:80 angular-starter &
+#    Run image (on localhost:9080):
+#    docker run --name angular-starter -p 9080:80 angular-starter &
 #
 #    Run image as virtual host (read more: https://github.com/jwilder/nginx-proxy):
 #    docker run -e VIRTUAL_HOST=angular-starter.your-domain.com --name angular-starter angular-starter &
@@ -19,7 +19,7 @@ FROM nginx:1.13.0-alpine
 
 # install console and node
 RUN apk add --no-cache bash=4.3.46-r5 &&\
-    apk add --no-cache openssl=1.0.2m-r0 &&\
+    apk add --no-cache libressl &&\
     apk add --no-cache nodejs
 
 # install npm ( in separate dir due to docker cache)

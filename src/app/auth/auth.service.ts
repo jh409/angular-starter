@@ -10,7 +10,7 @@ export class AuthService {
     AuthService.auth = Keycloak({
       realm: "example",
       url: "http://localhost:8080/auth",
-      clientId: "examplefrontend",
+      clientId: "example",
       sslRequired: "none",
       publicClient: true
     });
